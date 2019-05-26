@@ -1,0 +1,11 @@
+def removeDuplicates(head):
+    counter = head
+    while counter.next:
+        while counter.next and counter.data!=counter.next.data:
+            counter=counter.next
+        if counter.next:
+            next_node = counter.next
+            counter.next = next_node.next
+            counter = head
+
+    return head
