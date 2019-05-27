@@ -1,0 +1,46 @@
+def findMergeNode(head1, head2):
+    merge_node = None
+    last_node_list2 = None
+    list1_cur = head1
+    list2_cur = head2
+    
+    # There are 2 cases here
+    # 1. when there is only 1 element in list1
+    # 2. when there are more than 1 element in list1
+
+# 1
+    if list1_cur.next==None:
+        while list2_cur.next:
+            if list2_cur==list1_cur:
+                merge_node = list2_cur
+                break
+# 2
+    else:
+
+        while list1_cur.next:
+            while list2_cur.next:
+                if list1_cur == list2_cur:
+                    merge_node = list2_cur
+                    break
+                list2_cur = list2_cur.next
+            # In case we are at the end of list2, if the last node is list 2 is the merger   
+            if list2_cur==list1_cur:
+                merge_node = list2_cur
+                break
+            else:
+                # reset the head pointer for list 2
+                last_node_list2 = list2_cur
+                list2_cur = head2
+            #switch to next element in list1
+            list1_cur = list1_cur.next
+        
+        # In case we are at the end of list1 and if that node is the merger point    
+        if list1_cur==list2_cur:
+            merge_node = list1_cur
+    # In case we are at the end of list1 and list2, and if that node is the merger point 
+        elif list1_cur == last_node_list2:
+            merge_node = last_node_list2
+        else:
+            pass
+
+    return merge_node.data
