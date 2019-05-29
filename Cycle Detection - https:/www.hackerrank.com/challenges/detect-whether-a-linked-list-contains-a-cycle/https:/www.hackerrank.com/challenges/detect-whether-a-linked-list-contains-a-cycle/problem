@@ -1,0 +1,15 @@
+def has_cycle(head):
+    cur_node = head
+    if not cur_node.next:
+        return False
+    else:
+        # first run through the list and assign numbers to each node
+        d = 'a'
+        while cur_node.next:
+            if cur_node.data != d:
+                cur_node.data = d
+                cur_node=cur_node.next
+            else:
+                return True
+        return False
+            
