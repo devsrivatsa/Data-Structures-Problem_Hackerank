@@ -2,7 +2,7 @@
 Node is defined as
 self.left (the left child of the node)
 self.right (the right child of the node)
-self.info (the value of the node)
+self.info (the value contained in the node)
 """
 def preOrder(root):
     def _preOrder(root,t):
