@@ -1,0 +1,18 @@
+"""
+Important: The function is defined outside the class
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.info (the value of the node)
+"""
+def inOrder(root):
+    #Write your code here
+    if root:
+        print(_inOrder(root,''))
+
+def _inOrder(cur_node, t):
+    if cur_node:
+        t = _inOrder(cur_node.left,t)
+        t += str(cur_node.info) + ' '
+        t = _inOrder(cur_node.right,t) 
+    return t
