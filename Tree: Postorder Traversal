@@ -1,0 +1,17 @@
+"""
+Important: Here, the postOrder function is defined outside the Binary Search Tree class
+
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.info (the value of the node)
+"""
+def postOrder(root):
+    if root:
+        return print(_postOrder(root,''))
+def _postOrder(cur_node,t):
+    if cur_node:
+        t = _postOrder(cur_node.left, t)
+        t = _postOrder(cur_node.right, t)
+        t += str(cur_node.info)+ ' '
+    return t
