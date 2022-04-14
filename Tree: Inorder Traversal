@@ -16,3 +16,26 @@ def _inOrder(cur_node, t):
         t += str(cur_node.info) + ' '
         t = _inOrder(cur_node.right,t) 
     return t
+
+########################################Leetcode#####################################
+
+class Solution:
+    def __init__(self):
+        self.out = []
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        #if root is not null
+        if root:
+            #traverse the left sub tree
+            self.inorderTraversal(root.left)
+            
+            #if a node in lst is pointing to null, then go back 
+            #(happens in recursion call stack because if root is null, we return self.out.
+            # this return value is of no importance as it is not the final function call in call stack value)
+            # after the pointer is back to root for the second time, we append it to self.out
+            
+            self.out.append(root.val)
+            
+            # traverse the right sub tree (rst)
+            self.inorderTraversal(root.right)
+        
+        return self.out
