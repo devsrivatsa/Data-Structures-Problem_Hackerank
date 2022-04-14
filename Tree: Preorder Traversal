@@ -14,3 +14,16 @@ def preOrder(root):
 
     if root:
         return print(_preOrder(root,''))
+
+
+##################################Leetcode#########################################
+
+class Solution:
+    def __init__(self):
+        self.out = []
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:      
+        if root:
+            self.out.append(root.val)
+            self.preorderTraversal(root.left)
+            self.preorderTraversal(root.right)
+        return self.out
